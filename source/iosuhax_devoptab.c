@@ -22,7 +22,7 @@
  * distribution.
  ***************************************************************************/
 #include "iosuhax.h"
-#include "os_functions.h"
+#include <coreinit/mutex.h>
 #include <errno.h>
 #include <fcntl.h>
 #include <malloc.h>
@@ -957,7 +957,7 @@ static int fs_dev_add_device(const char *name, const char *mount_path, int fsaFd
     priv->mount_path = devpath;
     priv->fsaFd      = fsaFd;
     priv->mounted    = isMounted;
-    priv->pMutex     = malloc(OS_MUTEX_SIZE);
+    priv->pMutex     = malloc(sizeof(OSMutex));
 
     if (!priv->pMutex) {
         free(dev);

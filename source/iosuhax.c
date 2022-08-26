@@ -22,7 +22,7 @@
  * distribution.
  ***************************************************************************/
 #include "iosuhax.h"
-#include "os_functions.h"
+#include <coreinit/ios.h>
 #include <malloc.h>
 #include <string.h>
 
